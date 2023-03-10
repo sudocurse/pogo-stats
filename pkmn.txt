@@ -1,0 +1,93 @@
+
+aron highest hits highest cp limit at level 50
+lairon 28,
+aggron 19
+
+
+50, 28, 19
+0.84280371, 0.7068842, 0.5822789 --------- , 
+15
+15
+15
+Desired data we need is for the best IV combo under the cap of 1500
+
+CP formula: CP = (Base Attack + IV) * sqrt(Base Defense + IV) * sqrt(Base Stamina + IV) * CPM^2 / 10
+
+program parts
+- to get CPM you need to compute full IV table for given pokemon and corresponding pokemon level under cap
+- get base stats for pokemon
+- compute battle stat, python: atk = (base_atk + iv) * cpm, def = (base_def + iv) * cpm, sta = (base_sta + iv) * cpm
+- use formula for CP, python: cp = atk * sqrt(def) * sqrt(sta) / 10
+
+
+Pokemon, Best Atk IV, Best Def IV, Best Sta IV, Base Atk, Base Def, Base HP, Level, CP multiplier for level, CPM
+Aron, 15, 15, 15, 121, 141, 137, 50, 0.79030001, 485
+Aron, 15, 15, 15, 121, 141, 137, 50, 0.79030001, 1478
+
+real attack = (121 + 15) * 
+def = (141 + 15) * 0.79030001 = 130.5
+sta = (137 + 15) * 0.79030001 = 126.5
+
+
+cp = 111.5 * sqrt(130.5) * sqrt(126.5) / 10 = 1429.5
+
+
+Aron, 0, 0, 0, 121, 141, 137, 50, 0.84280371
+
+real attack = (121 + 0) * 0.84280371 = 102.2
+def = (141 + 0) * 0.84280371 = 119.2
+sta = (137 + 0) * 0.84280371 = 115.8
+
+96.5 * sqrt(112.5) * sqrt(108.5) / 10 = 1429.5
+
+
+
+Lairon, 0, 14, 15, 158, 198, 155, 28, 0.7068842
+
+real attack = (158 + 15) * 0.7068842 = 140.5
+def = (198 + 15) * 0.7068842 = 181.5
+sta = (181 + 15) * 0.7068842 = 165.5
+
+cp = 140.5 * sqrt(181.5) * sqrt(165.5) / 10 = 1499.9
+
+
+Lairon, 0, 0, 0, 158, 198, 181, 155, 28, 0.79030001
+
+real attack = (158 + 0) * 0.79030001 = 125.2
+def = (198 + 0) * 0.79030001 = 157.2
+sta = (181 + 0) * 0.79030001 = 143.2
+
+cp = 125.2 * sqrt(157.2) * sqrt(143.2) / 10 = 1499.9
+
+Aggron, 0, 14, 12, 198, 257, 172, 19, 0.5822789
+
+real attack = (198 + 12) * 0.5822789 = 161.2
+def = (257 + 12) * 0.5822789 = 220.2
+sta = (172 + 12) * 0.5822789 = 146.2
+
+cp = 161.2 * sqrt(220.2) * sqrt(146.2) / 10 = 1499.9
+
+Aggron, 0, 0, 0, 198, 257, 172, 19, 0.7068842
+    
+real attack = (198 + 0) * 0.5822789 = 115.8
+def = (257 + 0) * 0.5822789 = 150.2
+sta = (172 + 0) * 0.5822789 = 102.2
+
+Aggron, 5, 14, 13, 198, 257, 172, 18.5, 0.57456913
+Aggron, 8, 14, 13, 198, 257, 172, 25.0, 0.57456913, 2001
+
+real attack = (198 + 5) * 0.57456913 = 114.5
+def = (257 + 14) * 0.57456913 = 219.5
+sta = (172 + 13) * 0.57456913 = 145.5
+
+cp = 114.5 * sqrt(219.5) * sqrt(145.5) / 10 = 1499.9
+Aggron, 7, 15, 1, 198, 257, 172, 20.0, _, 1587
+Aggron, 14, 12, 12, 198, 257, 172, 17.5, 0.55883059
+
+real attack = (198 + 14) * 0.55883059 = 140.5
+def = (257 + 12) * 0.55883059 = 216.2
+sta = (172 + 12) * 0.55883059 = 142.2
+
+cp = 140.5 * sqrt(216.2) * sqrt(142.2) / 10 = 1499.9
+
+
